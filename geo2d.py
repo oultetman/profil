@@ -157,7 +157,7 @@ class Droite:
 
     def perpendiculaire(self, p: Point) -> 'Droite':
         """retourne la droite perpendiculaire à self passant par p"""
-        return Droite(-1/self.a, p.y + p.x/self.a)
+        return Droite(-1 / self.a, p.y + p.x / self.a)
 
     def appartient(self, p: Point, delta: float = 0.001) -> bool:
         """retourne true si p appartient à self à +-delta près"""
@@ -194,6 +194,7 @@ class Segment(Droite):
     def __str__(self):
         return f"{super().__str__()} {self.p1} {self.p2}"
 
+
 def main():
     print("debut")
     a = Point(0, 0, "A")
@@ -208,7 +209,7 @@ def main():
     s1 = Segment(Point(0, 0), Point(4, 0))
     s2 = Segment(Point(-1, 3), Point(3, 0))
     print(s1.intersection(s2))
-    d = Droite(a,b)
+    d = Droite(a, b)
     print(d.perpendiculaire(c))
     print(d.hauteur(c).longueur())
 
