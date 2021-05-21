@@ -175,6 +175,12 @@ class Droite:
             return Segment(pi, p)
         return None
 
+    def get_y(self, x: Real) -> Real:
+        return self.a * x + self.b
+
+    def get_x(self, y: Real) -> Real:
+        return (y - self.b) / self.a
+
 
 class Segment(Droite):
     def __init__(self, p1: Point, p2: Point):
@@ -190,6 +196,18 @@ class Segment(Droite):
 
     def longueur(self):
         return self.p1.distance(self.p2)
+
+    def get_xmax(self):
+        return max(self.p1.x, self.p2.x)
+
+    def get_ymax(self):
+        return max(self.p1.y, self.p2.y)
+
+    def get_xmin(self):
+        return min(self.p1.x, self.p2.x)
+
+    def get_ymin(self):
+        return min(self.p1.y, self.p2.y)
 
     def __str__(self):
         return f"{super().__str__()} {self.p1} {self.p2}"
